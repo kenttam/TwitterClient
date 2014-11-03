@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ComposeViewController">
+            <connections>
+                <outlet property="nameLabel" destination="RG8-Mp-Ach" id="PK9-UE-v2n"/>
+                <outlet property="profileImageView" destination="64u-bo-iS3" id="tqZ-uq-gzr"/>
+                <outlet property="tweetTextView" destination="418-8g-BpX" id="ZgH-Wy-2Fb"/>
+                <outlet property="usernameLabel" destination="jcm-R3-B8a" id="6US-us-4KM"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="64u-bo-iS3">
+                    <rect key="frame" x="16" y="8" width="48" height="48"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="48" id="DWR-a6-fHs"/>
+                        <constraint firstAttribute="width" constant="48" id="T22-6Y-3bA"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Kent Tam" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RG8-Mp-Ach">
+                    <rect key="frame" x="72" y="8" width="62" height="21"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@ktam39" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jcm-R3-B8a">
+                    <rect key="frame" x="72" y="33" width="47.5" height="13.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="418-8g-BpX">
+                    <rect key="frame" x="8" y="64" width="584" height="528"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="RG8-Mp-Ach" firstAttribute="leading" secondItem="64u-bo-iS3" secondAttribute="trailing" constant="8" id="8qA-br-pXb"/>
+                <constraint firstAttribute="trailing" secondItem="418-8g-BpX" secondAttribute="trailing" constant="8" id="9f0-pg-x6U"/>
+                <constraint firstItem="64u-bo-iS3" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" constant="8" id="CW0-zT-6K3"/>
+                <constraint firstItem="jcm-R3-B8a" firstAttribute="top" secondItem="RG8-Mp-Ach" secondAttribute="bottom" constant="8" id="GNB-Mx-lRI"/>
+                <constraint firstItem="RG8-Mp-Ach" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="8" id="III-Gn-fOJ"/>
+                <constraint firstItem="418-8g-BpX" firstAttribute="top" secondItem="64u-bo-iS3" secondAttribute="bottom" constant="8" id="MUk-Ou-JCx"/>
+                <constraint firstItem="64u-bo-iS3" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="topMargin" id="Y1y-C3-wnG"/>
+                <constraint firstItem="jcm-R3-B8a" firstAttribute="leading" secondItem="64u-bo-iS3" secondAttribute="trailing" constant="8" id="gxH-b8-lnL"/>
+                <constraint firstAttribute="bottom" secondItem="418-8g-BpX" secondAttribute="bottom" constant="8" id="swd-gB-H7b"/>
+                <constraint firstItem="418-8g-BpX" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="wuk-AY-hAY"/>
+            </constraints>
+        </view>
+    </objects>
+</document>
