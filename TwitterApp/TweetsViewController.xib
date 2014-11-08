@@ -23,8 +23,8 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="x6Y-a2-tcI" secondAttribute="trailing" id="08t-Eq-Lyn"/>
-                <constraint firstItem="x6Y-a2-tcI" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="KTy-oE-uFA"/>
                 <constraint firstAttribute="bottom" secondItem="x6Y-a2-tcI" secondAttribute="bottom" id="SW8-Yx-Bb8"/>
+                <constraint firstItem="x6Y-a2-tcI" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="f8a-b3-E6E"/>
                 <constraint firstItem="x6Y-a2-tcI" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="iYf-bV-F10"/>
             </constraints>
             <point key="canvasLocation" x="139" y="269"/>

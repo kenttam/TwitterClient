@@ -84,6 +84,7 @@
         self.tweets = tweets;
         [self.tableView reloadData];
         [self.refreshControl endRefreshing];
+        NSLog(@"tweetsview %@", tweets);
     }];
 }
 

@@ -15,6 +15,7 @@
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0PU-4T-sjS">
                         <rect key="frame" x="8" y="8" width="48" height="48"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="width" constant="48" id="14k-JB-K3O"/>
                             <constraint firstAttribute="height" constant="48" id="P32-ag-nIF"/>

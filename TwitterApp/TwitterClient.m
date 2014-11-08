@@ -70,6 +70,15 @@ NSString *const kTwitterBaseUrl = @"https://api.twitter.com";
         completion(nil, error);
     }];
 }
+-(void)profileWithParam:(NSDictionary *)params completion:(void (^)(NSArray *tweets, NSError *error))completion {
+    [self GET:@"1.1/users/look_up.json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSArray *tweets = [Tweet tweetsWithArray:responseObject];
+        completion(tweets, nil);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        completion(nil, error);
+    }];
+}
 
 -(void)tweet:(NSDictionary *)params completion:(void (^)(Tweet *tweet, NSError *error))completion{
     [self POST:@"1.1/statuses/update.json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -98,6 +107,29 @@ NSString *const kTwitterBaseUrl = @"https://api.twitter.com";
         Tweet *tweet = [[Tweet alloc]initWithDictionary:responseObject];
         completion(tweet, nil);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        completion(nil, error);
+    }];
+    
+}
+
+-(void)getBanner:(NSDictionary *)params completion:(void (^)(NSString *, NSError *))completion {
+    [self GET:@"1.1/users/profile_banner.json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"%@", responseObject);
+        NSString *url = [responseObject valueForKeyPath:@"sizes.ipad_retina.url"];
+        completion(url, nil);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        completion(nil, error);
+    }];
+    
+}
+-(void)getTimeline:(NSDictionary *)params completion:(void (^)(NSArray *, NSError *))completion {
+        NSLog(@"started request");
+    [self GET:@"1.1/statuses/user_timeline.json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"response: %@", responseObject);
+        NSArray *tweets = [Tweet tweetsWithArray:responseObject];
+        completion(tweets, nil);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"error: %@", error);
         completion(nil, error);
     }];
     

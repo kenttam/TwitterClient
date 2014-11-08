@@ -10,6 +10,7 @@
 #import "TwitterClient.h"
 #import "LoginViewController.h"
 #import "TweetsViewController.h"
+#import "MainViewController.h"
 #import "User.h"
 #import "Tweet.h"
 
@@ -25,12 +26,11 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userDidLogout) name:UserDidLogoutNotification object:nil];
-    
     User *user = [User currentUser];
     self.window.rootViewController = [[UINavigationController alloc] init];
     if (user != nil) {
         NSLog(@"%@", user.name);
-        self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[TweetsViewController alloc]init]];
+        self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[MainViewController alloc]init]];
     } else {
         NSLog(@"Not logged in");
         self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[LoginViewController alloc]init]];

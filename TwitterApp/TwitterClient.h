@@ -23,4 +23,6 @@
 
 -(void)favoriteUpdateWithParams:(NSDictionary *)params completion:(void (^)(Tweet *, NSError *))completion;
 -(void)retweetUpdateWithParams:(NSDictionary *)params completion:(void (^)(Tweet *, NSError *))completion;
+-(void)getBanner:(NSDictionary *)params completion:(void (^)(NSString *, NSError *))completion;
+-(void)getTimeline:(NSDictionary *)params completion:(void (^)(NSArray *, NSError *))completion;
 @end
