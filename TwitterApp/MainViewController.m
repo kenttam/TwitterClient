@@ -15,7 +15,7 @@
 #define SLIDE_TIMING .25
 #define PANEL_WIDTH 60
 
-@interface MainViewController () <UIGestureRecognizerDelegate, LeftMenuViewControllerDelegate, TweetCellDelegate >
+@interface MainViewController () <UIGestureRecognizerDelegate, LeftMenuViewControllerDelegate, TweetCellDelegate>
 @property (nonatomic, strong) TweetsViewController *tweetsVC;
 @property (nonatomic, strong) LeftMenuViewController *menuVC;
 @property (nonatomic, strong) ProfileViewController *profileVC;
@@ -30,6 +30,7 @@
     CGRect frame = self.view.bounds;
     self.tweetsVC = [[TweetsViewController alloc]init];
     self.tweetsVC.view.frame = frame;
+    self.tweetsVC.mainVC = self;
     self.menuVC = [[LeftMenuViewController alloc]init];
     
     self.menuVC.view.frame = frame;
@@ -121,19 +122,18 @@
     if ([view  isEqual: @"profile"]){
         self.profileVC.user = user;
         self.currentVC = self.profileVC;
+        [self.profileVC render];
     }
         [self.currentVC.view removeFromSuperview];
     if ([view  isEqual: @"timeline"]){
         self.currentVC = self.tweetsVC;
     }
+    NSLog(@"%@", user.name);
     [self.view addSubview:self.currentVC.view];
     [self movePanelToOriginalPosition];
     [self setUpGestures];
 }
 
-- (void)didChooseView:(NSString *)view user:(User *)user{
-    [self leftMenuViewController:self.menuVC didChooseView:@"profile" user:user];
-}
 /*
 #pragma mark - Navigation
 

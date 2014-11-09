@@ -28,31 +28,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-        self.nameLabel.text = self.user.name;
-        self.usernameLabel.text = self.user.screenname;
-        NSString *profileImageURL = self.user.profileImageUrl;
-        [self.profileImageView setImageWithURL:[NSURL URLWithString:profileImageURL]];
-    self.numFollowersLabel.text = [self.user.numFollowers stringValue];
-    self.numFollowingLabel.text = [self.user.numFollowing stringValue];
-    self.numTweetsLabel.text = [self.user.numTweets stringValue];
-    /*
-        NSString *bannerImageUrl = self.user.bannerImageUrl;
-        NSDictionary *dictionary = @{
-            @"user_id" : self.user.userID
-        };
-        [[TwitterClient sharedInstance] getBanner:dictionary completion:^(NSString *bannerImageUrl, NSError *error) {
-            NSLog(@"banner: %@", bannerImageUrl);
-        }];
-        [self.bannerImageView setImageWithURL:[NSURL URLWithString:bannerImageUrl]];
-        NSLog(@"here");
-     */
-    NSDictionary *dictionary = @{
-         @"user_id" : self.user.userID
-     };
-    [[TwitterClient sharedInstance] getTimeline:dictionary completion:^(NSArray *tweets, NSError *error) {
-        NSLog(@"setting %@", tweets);
-        self.tweets = tweets;
-    }];
+    [self render];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -66,6 +42,16 @@
         self.user = user;
     }
     return self;
+}
+
+- (void)render {
+    self.nameLabel.text = self.user.name;
+    self.usernameLabel.text = self.user.screenname;
+    NSString *profileImageURL = self.user.profileImageUrl;
+    [self.profileImageView setImageWithURL:[NSURL URLWithString:profileImageURL]];
+    self.numFollowersLabel.text = [self.user.numFollowers stringValue];
+    self.numFollowingLabel.text = [self.user.numFollowing stringValue];
+    self.numTweetsLabel.text = [self.user.numTweets stringValue];
 }
 
 /*

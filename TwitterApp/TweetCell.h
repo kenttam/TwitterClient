@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Tweet.h"
+#import "LeftMenuViewController.h"
 
 @protocol TweetCellDelegate;
 
@@ -16,10 +17,12 @@
 
 @property (strong, nonatomic)Tweet *tweet;
 @property (nonatomic, weak) id<TweetCellDelegate> delegate;
+- (void)onTap:(UITapGestureRecognizer *)tgr;
 @end
 
 @protocol TweetCellDelegate <NSObject>
 
-- (void)didChooseView:(NSString *)view user:(User *)user;
+//- (void)didChooseView:(NSString *)view user:(User *)user;
+- (void)leftMenuViewController:(LeftMenuViewController *)viewController didChooseView:(NSString *)view user:(User *)user;
 
 @end

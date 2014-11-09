@@ -9,6 +9,7 @@
 #import "TweetCell.h"
 #import "Tweet.h"
 #import "UIImageView+AFNetworking.h"
+#import "LeftMenuViewController.h"
 #import "NSDate+TimeAgo.h"
 
 @interface TweetCell()
@@ -49,15 +50,9 @@
 
 - (void)onTap:(UITapGestureRecognizer *)tgr
 {
-    NSLog(@"tapped");
     id<TweetCellDelegate> strongDelegate = self.delegate;
-    
-    // Our delegate method is optional, so we should
-    // check that the delegate implements it
-    if ([strongDelegate respondsToSelector:@selector(didChooseView:user:)]) {
-    NSLog(@"inside block");
-        [strongDelegate didChooseView:@"profile" user:self.tweet.user];
-        
+    if ([strongDelegate respondsToSelector:@selector(leftMenuViewController:didChooseView:user:)]) {
+        [strongDelegate leftMenuViewController:nil didChooseView:@"profile" user:self.tweet.user];
     }
     
 }

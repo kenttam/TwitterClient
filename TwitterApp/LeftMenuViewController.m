@@ -10,7 +10,6 @@
 #import "User.h"
 
 @interface LeftMenuViewController ()
-
 @end
 
 @implementation LeftMenuViewController

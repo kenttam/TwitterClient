@@ -62,6 +62,7 @@
 
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TweetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetCell"];
+    cell.delegate = self.mainVC;
     cell.tweet = self.tweets[indexPath.row];
     return cell;
 }

@@ -12,4 +12,5 @@
 @interface ProfileViewController : UIViewController
 @property (nonatomic, strong) User *user;
 - (id) initWithUser:(User *)user;
+- (void) render;
 @end

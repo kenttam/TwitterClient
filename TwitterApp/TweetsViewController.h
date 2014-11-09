@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MainViewController.h"
 
 @interface TweetsViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) MainViewController *mainVC;
 
 @end

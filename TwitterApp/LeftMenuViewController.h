@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MainViewController.h"
 #import "User.h"
 
 @protocol LeftMenuViewControllerDelegate;
