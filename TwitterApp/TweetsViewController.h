@@ -12,5 +12,6 @@
 @interface TweetsViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) MainViewController *mainVC;
-
+@property (nonatomic, strong) NSString *mode;
+-(void) fetchTweets;
 @end

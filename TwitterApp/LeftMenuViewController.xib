@@ -32,6 +32,15 @@
                         <action selector="onTimelineTap:" destination="-1" eventType="touchUpInside" id="e1f-mZ-k4g"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="avB-8q-6tT">
+                    <rect key="frame" x="8" y="76" width="64" height="30"/>
+                    <state key="normal" title="Mentions">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="onMentionsTap:" destination="-1" eventType="touchUpInside" id="BPH-lo-JwQ"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <point key="canvasLocation" x="109" y="196"/>

@@ -70,6 +70,16 @@ NSString *const kTwitterBaseUrl = @"https://api.twitter.com";
         completion(nil, error);
     }];
 }
+
+-(void)mentionsTimelineWithParams:(NSDictionary *)params completion:(void (^)(NSArray *tweets, NSError *error))completion {
+    [self GET:@"1.1/statuses/mentions_timeline.json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSArray *tweets = [Tweet tweetsWithArray:responseObject];
+        completion(tweets, nil);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        completion(nil, error);
+    }];
+}
+
 -(void)profileWithParam:(NSDictionary *)params completion:(void (^)(NSArray *tweets, NSError *error))completion {
     [self GET:@"1.1/users/look_up.json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         

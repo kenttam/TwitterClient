@@ -41,6 +41,15 @@
         [strongDelegate leftMenuViewController:self didChooseView:@"timeline" user:nil];
     }
 }
+- (IBAction)onMentionsTap:(id)sender {
+    id<LeftMenuViewControllerDelegate> strongDelegate = self.delegate;
+    
+    // Our delegate method is optional, so we should
+    // check that the delegate implements it
+    if ([strongDelegate respondsToSelector:@selector(leftMenuViewController:didChooseView:user:)]) {
+        [strongDelegate leftMenuViewController:self didChooseView:@"mentions" user:nil];
+    }
+}
 
 /*
 #pragma mark - Navigation

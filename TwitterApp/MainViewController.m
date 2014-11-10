@@ -29,6 +29,7 @@
     // Do any additional setup after loading the view from its nib.
     CGRect frame = self.view.bounds;
     self.tweetsVC = [[TweetsViewController alloc]init];
+    self.tweetsVC.mode = @"timeline";
     self.tweetsVC.view.frame = frame;
     self.tweetsVC.mainVC = self;
     self.menuVC = [[LeftMenuViewController alloc]init];
@@ -126,9 +127,16 @@
     }
         [self.currentVC.view removeFromSuperview];
     if ([view  isEqual: @"timeline"]){
+        self.tweetsVC.mode = @"timeline";
+        [self.tweetsVC fetchTweets];
         self.currentVC = self.tweetsVC;
     }
-    NSLog(@"%@", user.name);
+    if ([view isEqual:@"mentions"]) {
+        self.tweetsVC.mode = @"mentions";
+        [self.tweetsVC fetchTweets];
+        self.currentVC = self.tweetsVC;
+        
+    }
     [self.view addSubview:self.currentVC.view];
     [self movePanelToOriginalPosition];
     [self setUpGestures];

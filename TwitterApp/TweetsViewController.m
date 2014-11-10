@@ -15,10 +15,10 @@
 #import "TweetDetailViewController.h"
 
 @interface TweetsViewController () <UITableViewDataSource, UITableViewDelegate>
-@property (nonatomic, strong) NSArray *tweets;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
 @property (nonatomic, strong) TweetCell *prototypeTweetCell;
 
+@property (nonatomic, strong) NSArray *tweets;
 @end
 
 @implementation TweetsViewController
@@ -81,12 +81,20 @@
 }
 
 -(void)fetchTweets {
-    [[TwitterClient sharedInstance] homeTimelineWithParams:nil completion:^(NSArray *tweets, NSError *error) {
-        self.tweets = tweets;
-        [self.tableView reloadData];
-        [self.refreshControl endRefreshing];
-        NSLog(@"tweetsview %@", tweets);
-    }];
+    if (![self.mode  isEqual: @"mentions"]) {
+        [[TwitterClient sharedInstance] homeTimelineWithParams:nil completion:^(NSArray *tweets, NSError *error) {
+            self.tweets = tweets;
+            [self.tableView reloadData];
+            [self.refreshControl endRefreshing];
+        }];
+    } else {
+        [[TwitterClient sharedInstance] mentionsTimelineWithParams:nil completion:^(NSArray *tweets, NSError *error) {
+            self.tweets = tweets;
+            [self.tableView reloadData];
+            [self.refreshControl endRefreshing];
+        }];
+        
+    }
 }
 
 -(void)compose {
